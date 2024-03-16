@@ -40,40 +40,69 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Login'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Username',
-              ),
-            ),
-            SizedBox(height: 20.0),
-            TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: 'Password',
-              ),
-            ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                // Placeholder login logic (replace with actual login validation)
-                bool isLoggedIn = true; // Simulating successful login
+      body: Container(
+        color: Colors.blue[50], // Powder blue background color
+        padding: EdgeInsets.all(20.0),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Welcome to MyApp',
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Username',
+                    border: OutlineInputBorder(),
+                  ), 
+                ),
+                SizedBox(height: 10.0),
+                TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(height: 10.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        // Placeholder action for forgot password
+                        print('Forgot Password');
+                      },
+                      child: Text('Forgot Password?'),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    // Placeholder login logic (replace with actual login validation)
+                    bool isLoggedIn = true; // Simulating successful login
 
-                if (isLoggedIn) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage(userName: 'Aradhya Goel')),
-                  );
-                } else {
-                  // Handle login failure
-                }
-              },
-              child: Text('Login'),
+                    if (isLoggedIn) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage(userName: 'Aradhya Goel')),
+                      );
+                    } else {
+                      // Handle login failure
+                    }
+                  },
+                  child: Text('Login'),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
